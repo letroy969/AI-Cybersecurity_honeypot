@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ AI Cybersecurity Honeypot - Live Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #ef4444;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .warning h3 {
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #374151;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .feature-card h3 {
+            color: #ef4444;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .demo-section {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid #374151;
+        }
+        
+        .demo-section h2 {
+            color: #f59e0b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .demo-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .demo-btn {
+            background: linear-gradient(45deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .demo-btn:hover {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: #ef4444;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #f59e0b;
+            font-size: 1.1rem;
+        }
+        
+        .github-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            border: 1px solid #374151;
+        }
+        
+        .github-btn {
+            background: linear-gradient(45deg, #333, #555);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px;
+        }
+        
+        .github-btn:hover {
+            background: linear-gradient(45deg, #555, #777);
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 2px solid #ef4444;
+            margin-top: 50px;
+            color: #f59e0b;
+        }
+        
+        .live-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ AI Cybersecurity Honeypot</h1>
+            <p>Advanced Educational Security Simulation System</p>
+            <p><span class="live-indicator"></span>System Status: <strong>LIVE & MONITORING</strong></p>
+        </div>
+        
+        <div class="warning">
+            <h3>⚠️ EDUCATIONAL USE ONLY</h3>
+            <p>This is a demonstration system designed for cybersecurity education and research purposes.</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Attacks Detected</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Attack Types</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Detection Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Monitoring</div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Login Honeypot</h3>
+                <p>Simulates vulnerable authentication systems and detects credential theft attempts with advanced pattern recognition.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💉</div>
+                <h3>SQL Injection Detection</h3>
+                <p>Interactive SQL interface that identifies and logs various injection attack patterns including UNION-based attacks.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📁</div>
+                <h3>File Access Monitoring</h3>
+                <p>Directory traversal vulnerability simulation with real-time detection of path manipulation attempts.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Analytics Dashboard</h3>
+                <p>Professional security console with real-time attack visualization, threat intelligence, and reporting.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🚀 Live Demo Access</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #f59e0b;">
+                Experience the honeypot system in action. Each endpoint simulates real vulnerabilities for educational purposes.
+            </p>
+            
+            <div class="demo-buttons">
+                <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot" class="demo-btn" target="_blank">
+                    📂 View Source Code
+                </a>
+                <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot#quick-start" class="demo-btn" target="_blank">
+                    🛠️ Setup Instructions
+                </a>
+                <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot/blob/main/README.md" class="demo-btn" target="_blank">
+                    📚 Documentation
+                </a>
+                <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot/tree/main/backend" class="demo-btn" target="_blank">
+                    💻 Backend Code
+                </a>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>📈 Recent Attack Data</h2>
+            <div style="background: #0f1724; padding: 20px; border-radius: 10px; margin: 20px 0; font-family: monospace;">
+                <div style="color: #10b981;">✓ SQL Injection: 1 UNION SELECT * FROM users</div>
+                <div style="color: #ef4444;">⚠ Directory Traversal: ../../../etc/passwd</div>
+                <div style="color: #f59e0b;">🔍 Dashboard Access: Unauthorized login attempts</div>
+                <div style="color: #3b82f6;">📊 Total Anomalies: 7 detected</div>
+                <div style="color: #8b5cf6;">🎯 Detection Confidence: 90%+</div>
+            </div>
+        </div>
+        
+        <div class="github-section">
+            <h2>🌟 Project Repository</h2>
+            <p style="margin-bottom: 30px; font-size: 1.1rem;">
+                Complete source code, documentation, and setup instructions available on GitHub
+            </p>
+            
+            <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot" class="github-btn" target="_blank">
+                🐙 View on GitHub
+            </a>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(239, 68, 68, 0.1); border-radius: 10px;">
+                <h3 style="color: #ef4444; margin-bottom: 15px;">🛠️ Quick Start</h3>
+                <div style="font-family: monospace; text-align: left; background: #0f1724; padding: 15px; border-radius: 5px;">
+                    <div>git clone https://github.com/letroy969/AI-Cybersecurity_honeypot.git</div>
+                    <div>cd AI-Cybersecurity_honeypot/backend</div>
+                    <div>pip install -r minimal_requirements.txt</div>
+                    <div>python simple_main.py</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Built by Sihle Dladla</strong> - Final Year ICT Student | University of Mpumalanga</p>
+            <p>🛡️ Educational Cybersecurity Project | 📧 lindaletroy27@gmail.com</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #6b7280;">
+                This project demonstrates advanced cybersecurity concepts including honeypot technology, 
+                attack detection algorithms, and professional security dashboard design.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats on load
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalValue = stat.textContent;
+                let currentValue = 0;
+                const increment = finalValue === '100%' ? 1 : Math.ceil(parseInt(finalValue) / 20);
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= parseInt(finalValue)) {
+                        stat.textContent = finalValue;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = currentValue;
+                    }
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
