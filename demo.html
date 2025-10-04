@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ AI Cybersecurity Honeypot - Interactive Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #ef4444;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+        
+        .demo-section {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid #374151;
+        }
+        
+        .demo-section h2 {
+            color: #f59e0b;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: rgba(15, 23, 36, 0.8);
+            border: 1px solid #374151;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #ef4444;
+        }
+        
+        .feature-card h3 {
+            color: #ef4444;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .code-block {
+            background: #0f1724;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .code-block .comment {
+            color: #6b7280;
+        }
+        
+        .code-block .string {
+            color: #10b981;
+        }
+        
+        .code-block .keyword {
+            color: #f59e0b;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #374151, #4b5563);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #4b5563, #6b7280);
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .warning h3 {
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+        
+        .deployment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .deployment-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #374151;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .deployment-card h3 {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .deployment-card .price {
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ AI Cybersecurity Honeypot</h1>
+            <p>Interactive Demo & Deployment Guide</p>
+        </div>
+        
+        <div class="warning">
+            <h3>⚠️ LIVE DEMO REQUIREMENTS</h3>
+            <p>The full interactive honeypot system requires a Python backend server. GitHub Pages only serves static files.</p>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🎮 Interactive Features Demo</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🔐 Login Honeypot</h3>
+                    <p>Professional login interface that detects credential theft attempts:</p>
+                    <div class="code-block">
+<span class="comment"># Demo Credentials:</span>
+<span class="string">Username:</span> admin
+<span class="string">Password:</span> password123
+                    </div>
+                    <p><strong>Features:</strong> Session management, attack logging, fake dashboard redirect</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>💉 SQL Injection Honeypot</h3>
+                    <p>Interactive SQL interface with real-time injection detection:</p>
+                    <div class="code-block">
+<span class="comment"># Test Queries:</span>
+<span class="keyword">SELECT</span> * FROM users
+<span class="keyword">1 UNION SELECT</span> * FROM users
+<span class="keyword">'; DROP TABLE</span> users; --
+                    </div>
+                    <p><strong>Features:</strong> Pattern recognition, result simulation, attack classification</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📁 File Access Honeypot</h3>
+                    <p>Directory traversal vulnerability simulation:</p>
+                    <div class="code-block">
+<span class="comment"># Test Paths:</span>
+<span class="string">/etc/passwd</span>
+<span class="string">../../../etc/passwd</span>
+<span class="string">/windows/system32/hosts</span>
+                    </div>
+                    <p><strong>Features:</strong> Path validation, fake file contents, traversal detection</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📊 Analytics Dashboard</h3>
+                    <p>Real-time security monitoring and threat intelligence:</p>
+                    <div class="code-block">
+<span class="comment"># Live Metrics:</span>
+Total Attacks: <span class="string">7</span>
+Attack Types: <span class="string">3</span>
+Detection Rate: <span class="string">100%</span>
+Anomaly Score: <span class="string">0.85+</span>
+                    </div>
+                    <p><strong>Features:</strong> Attack timeline, severity analysis, pattern recognition</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🚀 Deployment Options</h2>
+            
+            <div class="deployment-options">
+                <div class="deployment-card">
+                    <h3>🐍 PythonAnywhere</h3>
+                    <div class="price">FREE</div>
+                    <p>Perfect for Python web apps. Easy FastAPI deployment with free tier.</p>
+                    <a href="https://www.pythonanywhere.com" class="btn btn-secondary" target="_blank">Deploy Here</a>
+                </div>
+                
+                <div class="deployment-card">
+                    <h3>☁️ Heroku</h3>
+                    <div class="price">FREE</div>
+                    <p>Popular platform for web applications. Simple git-based deployment.</p>
+                    <a href="https://www.heroku.com" class="btn btn-secondary" target="_blank">Deploy Here</a>
+                </div>
+                
+                <div class="deployment-card">
+                    <h3>🚀 Railway</h3>
+                    <div class="price">FREE</div>
+                    <p>Modern deployment platform with automatic builds from GitHub.</p>
+                    <a href="https://railway.app" class="btn btn-secondary" target="_blank">Deploy Here</a>
+                </div>
+                
+                <div class="deployment-card">
+                    <h3>🌐 Render</h3>
+                    <div class="price">FREE</div>
+                    <p>Simple deployment with automatic SSL and custom domains.</p>
+                    <a href="https://render.com" class="btn btn-secondary" target="_blank">Deploy Here</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🛠️ Quick Local Setup</h2>
+            
+            <p>Run the full system locally on your machine:</p>
+            
+            <div class="code-block">
+<span class="comment"># Clone the repository</span>
+git clone https://github.com/letroy969/AI-Cybersecurity_honeypot.git
+cd AI-Cybersecurity_honeypot
+
+<span class="comment"># Install dependencies</span>
+cd backend
+pip install -r minimal_requirements.txt
+
+<span class="comment"># Start the honeypot server</span>
+python simple_main.py
+
+<span class="comment"># Access the system</span>
+http://localhost:8000/overview
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot" class="btn" target="_blank">
+                    📂 View Full Source Code
+                </a>
+                <a href="https://github.com/letroy969/AI-Cybersecurity_honeypot#quick-start" class="btn btn-secondary" target="_blank">
+                    📚 Setup Instructions
+                </a>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🎯 Live Demo URLs (When Deployed)</h2>
+            
+            <div class="code-block">
+<span class="comment"># System Overview</span>
+https://your-app.herokuapp.com/overview
+
+<span class="comment"># Honeypot Endpoints</span>
+https://your-app.herokuapp.com/honeypots/login
+https://your-app.herokuapp.com/honeypots/sql
+https://your-app.herokuapp.com/honeypots/file
+
+<span class="comment"># Analytics Dashboard</span>
+https://your-app.herokuapp.com/analytics-page
+
+<span class="comment"># API Documentation</span>
+https://your-app.herokuapp.com/docs
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>📱 What You'll See</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                <div style="background: #0f1724; padding: 20px; border-radius: 8px; border: 1px solid #374151;">
+                    <h4 style="color: #ef4444;">🔐 Login Interface</h4>
+                    <p>Professional login form with demo credentials and security warnings</p>
+                </div>
+                
+                <div style="background: #0f1724; padding: 20px; border-radius: 8px; border: 1px solid #374151;">
+                    <h4 style="color: #ef4444;">💉 SQL Console</h4>
+                    <p>Interactive SQL interface with real-time attack detection and result simulation</p>
+                </div>
+                
+                <div style="background: #0f1724; padding: 20px; border-radius: 8px; border: 1px solid #374151;">
+                    <h4 style="color: #ef4444;">📁 File Browser</h4>
+                    <p>File access interface with directory traversal detection and fake file contents</p>
+                </div>
+                
+                <div style="background: #0f1724; padding: 20px; border-radius: 8px; border: 1px solid #374151;">
+                    <h4 style="color: #ef4444;">📊 Analytics</h4>
+                    <p>Real-time dashboard with attack statistics, timelines, and threat intelligence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
