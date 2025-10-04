@@ -303,22 +303,36 @@ http://localhost:8000/overview
         </div>
         
         <div class="demo-section">
-            <h2>🎯 Live Demo URLs (When Deployed)</h2>
+            <h2>🎯 Live Demo URLs (After Deployment)</h2>
+            
+            <p style="margin-bottom: 20px; color: #f59e0b;">
+                <strong>Note:</strong> These URLs will work after you deploy to a cloud platform like Heroku, PythonAnywhere, or Railway.
+            </p>
             
             <div class="code-block">
 <span class="comment"># System Overview</span>
-https://your-app.herokuapp.com/overview
+http://localhost:8000/overview <span class="comment">← Works locally</span>
+https://your-app-name.herokuapp.com/overview <span class="comment">← After deployment</span>
 
 <span class="comment"># Honeypot Endpoints</span>
-https://your-app.herokuapp.com/honeypots/login
-https://your-app.herokuapp.com/honeypots/sql
-https://your-app.herokuapp.com/honeypots/file
+http://localhost:8000/honeypots/login <span class="comment">← Works locally</span>
+http://localhost:8000/honeypots/sql <span class="comment">← Works locally</span>
+http://localhost:8000/honeypots/file <span class="comment">← Works locally</span>
 
 <span class="comment"># Analytics Dashboard</span>
-https://your-app.herokuapp.com/analytics-page
+http://localhost:8000/analytics-page <span class="comment">← Works locally</span>
 
 <span class="comment"># API Documentation</span>
-https://your-app.herokuapp.com/docs
+http://localhost:8000/docs <span class="comment">← Works locally</span>
+            </div>
+            
+            <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #ef4444; margin-bottom: 10px;">🚀 Quick Test Locally:</h4>
+                <p>Run these commands to see the live system:</p>
+                <div style="background: #0f1724; padding: 10px; border-radius: 5px; font-family: monospace; margin: 10px 0;">
+                    cd backend && python simple_main.py
+                </div>
+                <p>Then visit: <strong>http://localhost:8000/overview</strong></p>
             </div>
         </div>
         
