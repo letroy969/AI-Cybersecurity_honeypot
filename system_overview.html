@@ -291,10 +291,10 @@
                     <h3>🎯 Honeypot Endpoints</h3>
                     <p>Simulated vulnerable services that attract and capture attack attempts.</p>
                     <ul class="endpoint-list">
-                        <li><a href="http://localhost:8000/honeypots/login" target="_blank">Login Portal</a> - Brute force detection</li>
-                        <li><a href="http://localhost:8000/honeypots/sql" target="_blank">SQL Interface</a> - Injection attacks</li>
-                        <li><a href="http://localhost:8000/honeypots/file" target="_blank">File Access</a> - Directory traversal</li>
-                        <li><a href="http://localhost:8000/honeypots/dashboard" target="_blank">Admin Dashboard</a> - Privileged access</li>
+                        <li><a href="/honeypots/login" target="_blank">Login Portal</a> - Brute force detection</li>
+                        <li><a href="/honeypots/sql" target="_blank">SQL Interface</a> - Injection attacks</li>
+                        <li><a href="/honeypots/file" target="_blank">File Access</a> - Directory traversal</li>
+                        <li><a href="/honeypots/dashboard" target="_blank">Admin Dashboard</a> - Privileged access</li>
                     </ul>
                 </div>
                 
@@ -302,9 +302,9 @@
                     <h3>📊 Analytics & Monitoring</h3>
                     <p>Real-time threat analysis and attack pattern detection.</p>
                     <ul class="endpoint-list">
-                        <li><a href="http://localhost:8000/analytics-page" target="_blank">Analytics Dashboard</a> - Visual threat data</li>
-                        <li><a href="http://localhost:8000/analytics" target="_blank">Analytics API</a> - JSON data endpoint</li>
-                        <li><a href="http://localhost:8000/attacks" target="_blank">Attack Logs</a> - Detailed event history</li>
+                        <li><a href="/analytics-page" target="_blank">Analytics Dashboard</a> - Visual threat data</li>
+                        <li><a href="/analytics" target="_blank">Analytics API</a> - JSON data endpoint</li>
+                        <li><a href="/attacks" target="_blank">Attack Logs</a> - Detailed event history</li>
                     </ul>
                 </div>
                 
@@ -312,9 +312,9 @@
                     <h3>🔧 System Management</h3>
                     <p>Administrative tools and system health monitoring.</p>
                     <ul class="endpoint-list">
-                        <li><a href="http://localhost:8000/health" target="_blank">Health Check</a> - System status</li>
-                        <li><a href="http://localhost:8000/docs" target="_blank">API Documentation</a> - Interactive docs</li>
-                        <li><a href="http://localhost:8000/generate-attacks" target="_blank">Test Data Generator</a> - Create sample attacks</li>
+                        <li><a href="/health" target="_blank">Health Check</a> - System status</li>
+                        <li><a href="/docs" target="_blank">API Documentation</a> - Interactive docs</li>
+                        <li><a href="/generate-attacks" target="_blank">Test Data Generator</a> - Create sample attacks</li>
                     </ul>
                 </div>
             </div>
@@ -365,67 +365,67 @@
         </div>
         
         <div class="navigation-grid">
-            <div class="nav-card" onclick="window.open('http://localhost:8000/analytics-page', '_blank')">
+            <div class="nav-card" onclick="window.open('/analytics-page', '_blank')">
                 <div class="nav-icon">📊</div>
                 <div class="nav-title">Analytics Dashboard</div>
                 <div class="nav-desc">Visual threat monitoring and attack analytics</div>
-                <a href="http://localhost:8000/analytics-page" target="_blank" class="nav-link">Open Dashboard</a>
+                <a href="/analytics-page" target="_blank" class="nav-link">Open Dashboard</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/honeypots/login', '_blank')">
+            <div class="nav-card" onclick="window.open('/honeypots/login', '_blank')">
                 <div class="nav-icon">🔐</div>
                 <div class="nav-title">Login Honeypot</div>
                 <div class="nav-desc">Test credential theft and brute force detection</div>
-                <a href="http://localhost:8000/honeypots/login" target="_blank" class="nav-link">Try Login</a>
+                <a href="/honeypots/login" target="_blank" class="nav-link">Try Login</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/honeypots/sql?query=1 UNION SELECT * FROM users', '_blank')">
+            <div class="nav-card" onclick="window.open('/honeypots/sql?query=1 UNION SELECT * FROM users', '_blank')">
                 <div class="nav-icon">💉</div>
                 <div class="nav-title">SQL Injection Honeypot</div>
                 <div class="nav-desc">Test SQL injection attack detection</div>
-                <a href="http://localhost:8000/honeypots/sql?query=1 UNION SELECT * FROM users" target="_blank" class="nav-link">Test SQLi</a>
+                <a href="/honeypots/sql?query=1 UNION SELECT * FROM users" target="_blank" class="nav-link">Test SQLi</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/honeypots/file?path=../../../etc/passwd', '_blank')">
+            <div class="nav-card" onclick="window.open('/honeypots/file?path=../../../etc/passwd', '_blank')">
                 <div class="nav-icon">📁</div>
                 <div class="nav-title">File Access Honeypot</div>
                 <div class="nav-desc">Test directory traversal detection</div>
-                <a href="http://localhost:8000/honeypots/file?path=../../../etc/passwd" target="_blank" class="nav-link">Test File Access</a>
+                <a href="/honeypots/file?path=../../../etc/passwd" target="_blank" class="nav-link">Test File Access</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/attacks', '_blank')">
+            <div class="nav-card" onclick="window.open('/attacks', '_blank')">
                 <div class="nav-icon">📋</div>
                 <div class="nav-title">Attack Logs</div>
                 <div class="nav-desc">View detailed attack event history</div>
-                <a href="http://localhost:8000/attacks" target="_blank" class="nav-link">View Logs</a>
+                <a href="/attacks" target="_blank" class="nav-link">View Logs</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/docs', '_blank')">
+            <div class="nav-card" onclick="window.open('/docs', '_blank')">
                 <div class="nav-icon">📚</div>
                 <div class="nav-title">API Documentation</div>
                 <div class="nav-desc">Interactive API documentation and testing</div>
-                <a href="http://localhost:8000/docs" target="_blank" class="nav-link">Open Docs</a>
+                <a href="/docs" target="_blank" class="nav-link">Open Docs</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/generate-attacks?count=10', '_blank')">
+            <div class="nav-card" onclick="window.open('/generate-attacks?count=10', '_blank')">
                 <div class="nav-icon">🎯</div>
                 <div class="nav-title">Generate Test Data</div>
                 <div class="nav-desc">Create sample attacks for testing</div>
-                <a href="http://localhost:8000/generate-attacks?count=10" target="_blank" class="nav-link">Generate Attacks</a>
+                <a href="/generate-attacks?count=10" target="_blank" class="nav-link">Generate Attacks</a>
             </div>
             
-            <div class="nav-card" onclick="window.open('http://localhost:8000/health', '_blank')">
+            <div class="nav-card" onclick="window.open('/health', '_blank')">
                 <div class="nav-icon">❤️</div>
                 <div class="nav-title">System Health</div>
                 <div class="nav-desc">Check system status and connectivity</div>
-                <a href="http://localhost:8000/health" target="_blank" class="nav-link">Check Health</a>
+                <a href="/health" target="_blank" class="nav-link">Check Health</a>
             </div>
         </div>
         
         <div class="footer">
             <p>🛡️ AI Cybersecurity Honeypot - Educational Security Research Platform</p>
             <p>Built with FastAPI, Python, and modern web technologies</p>
-            <p><strong>Server Running:</strong> <a href="http://localhost:8000" style="color: #ef4444;">http://localhost:8000</a></p>
+            <p><strong>Server Running:</strong> <span style="color: #ef4444;">Live on Render</span></p>
         </div>
     </div>
     
